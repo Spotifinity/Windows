@@ -13,7 +13,7 @@ print(r'''                     __             _   _  __ _       _ _
                     \ \| '_ \ / _ \| __| | |_| | '_ \| | __| | | |
                     _\ \ |_) | (_) | |_| |  _| | | | | | |_| |_| |
                     \__/ .__/ \___/ \__|_|_| |_|_| |_|_|\__|\__, |
-                       |_|                                   |___/
+                       |_|                                  |___/
 
                NIENTE PUBBLICITÀ | SKIP ILLIMITATI | SEMPRE AGGIORNATO
                         creato da @gocciolabtw - gocciola.xyz
