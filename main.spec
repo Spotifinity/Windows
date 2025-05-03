@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    ['main.py'],
+    ['C:\\Users\\klean\\Documents\\GitHub\\Windows\\main.py'],
     pathex=[],
     binaries=[],
     datas=[],
