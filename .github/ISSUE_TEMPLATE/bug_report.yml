@@ -5,20 +5,23 @@ labels:
 body:
   - type: textarea
     id: textarea-0
-    required: true
+    validations:
+      required: true
     attributes:
       label: Describe the bug
       description: A clear and concise description of what the bug is.
   - type: input
     id: input-1
-    required: true
+    validations:
+      required: true
     attributes:
       label: App Version
       description: What release of the app you're using?
       placeholder: v1.0.0
   - type: input
     id: input-2
-    required: true
+    validations:
+      required: true
     attributes:
       label: Python Log
       description: Please paste here the full Python Traceback. (The text in red)
