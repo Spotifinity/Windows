@@ -1,4 +1,8 @@
-dist
-build
-.vscode
+# build files
+build/
+dist/
+__pycache__/
 main.spec
+
+# vs code related
+.vscode
