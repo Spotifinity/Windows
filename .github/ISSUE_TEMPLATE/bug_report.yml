@@ -18,7 +18,7 @@ body:
       label: App Version
       description: What release of the app you're using?
       placeholder: v1.0.0
-  - type: input
+  - type: textarea
     id: textarea-1
     validations:
       required: true
