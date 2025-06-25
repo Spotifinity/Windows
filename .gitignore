@@ -6,3 +6,4 @@ main.spec
 
 # vs code related
 .vscode
+.history

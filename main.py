@@ -45,19 +45,37 @@ for library in libraries:
         print(f"Sto installando {library}...")
         subprocess.check_call([sys.executable, '-m', 'pip', 'install', library])
 
+try:
+    subprocess.run(['winget', '--version'], check=True)
+except Exception as e:
+    print("Winget non è stato installato sul sistema, deve essere installato per continuare.")
+    print("Puoi installarlo sul Microsoft Store, si chiama 'App Installer'.")
+    print("https://apps.microsoft.com/detail/9NBLGGH4NNS1")
+    input("Premi un tasto per continuare...")
+    exit()
+
 print()
 print("===== Controllo se Spotify è già installato...")
 spotify_path = os.path.join(os.environ['APPDATA'], 'Spotify')
+spicetify_path = os.path.join(os.environ['APPDATA'], 'spicetify')
 if os.path.exists(spotify_path):
     try:
         subprocess.run(['taskkill', '/F', '/IM', 'Spotify.exe'], check=False)
         subprocess.run([os.path.join(spotify_path, 'Spotify.exe'), '/uninstall', '/silent'], check=True)
         print("Spotify disinstallato correttamente.")
-    except subprocess.CalledProcessError:
+    except Exception as e:
         print("Non sono riuscito a disinstallare Spotify. Prova a farlo manualmente.")
+        print(e)
         input("Premi un tasto per continuare...")
         exit()
-subprocess.run(['winget', 'uninstall', 'Spicetify.Spicetify'], check=False)
+if os.path.exists(spicetify_path):
+    try:
+        subprocess.run(['winget', 'uninstall', 'Spicetify.Spicetify'], check=False)
+    except Exception as e:
+        print("Non sono riuscito a disinstallare Spicetify. Prova a farlo manualmente.")
+        print(e)
+        input("Premi un tasto per continuare...")
+        exit()
 
 url = "https://download.scdn.co/SpotifyFullSetupX64.exe"
 installer_path = os.path.join(os.environ['TEMP'], "SpotifySetup.exe")
@@ -82,8 +100,9 @@ try:
     print("Spotify installato correttamente.")
     print()
     print("===== Ora installo la mod...")
-except subprocess.CalledProcessError:
+except Exception as e:
     print("Non sono riuscito a installare Spotify. Prova a farlo manualmente.")
+    print(e)
     input("Premi un tasto per continuare...")
     exit()
 finally:
@@ -130,3 +149,4 @@ print("Ora puoi avviare Spotify e goderti la tua esperienza senza pubblicità!")
 print("Se hai aggiornato Spotify, ti consiglio di rieseguire questo script per aggiornare le mod.")
 print()
 input("Premi un tasto per continuare...")
+exit()
